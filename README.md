@@ -2,7 +2,7 @@
 
 A gamified productivity app that combines task management with a virtual pet companion to make completing your to-dos more engaging and fun!
 
-![Productivity Pet Helper](assets/screenshot.png)
+
 
 ## ✨ Features
 
