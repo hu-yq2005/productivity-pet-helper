@@ -1,0 +1,144 @@
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 10px 0;
+	padding: 20px;
+	width: 100%;
+	min-height: 70px;
+	background: var(--item-color);
+	border: none;
+	border-radius: 3px;
+	box-sizing: border-box;
+	font-size: var(--item-font-size);
+
+	@media (max-width: 600px) {
+		margin: 20px auto;
+	}
+
+	&.overdue {
+		border: 2px solid var(--red);
+		background: rgba(255, 0, 0, 0.1);
+	}
+
+	&.failed {
+		border: 2px solid var(--red);
+		background: rgba(225, 103, 90, 0.2);
+		opacity: 0.8;
+	}
+
+	.itemContent {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-right: 15px;
+	}
+
+	.itemname {
+		width: 100%;
+		overflow: auto;
+
+		&::-webkit-scrollbar {
+			background-color: var(--item-color);
+			height: 0.75em;
+			@media (max-width: 600px) {
+				height: 0.25em;
+			}
+		}
+
+		&::-webkit-scrollbar-thumb:window-inactive,
+		&::-webkit-scrollbar-thumb {
+			background: var(--bg);
+			border: 3px solid var(--item-color);
+			border-left: none;
+			border-right: none;
+			border-radius: 3px;
+		}
+	}
+
+	.timeLimit {
+		font-size: 12px;
+		color: var(--font-color);
+		opacity: 0.8;
+		font-weight: 500;
+		
+		&.overdueText {
+			color: var(--red);
+			font-weight: bold;
+		}
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		width: 100px;
+
+		button {
+			position: relative;
+			height: 24px;
+			border: none;
+
+			/* used as placeholder so the icon spacing is consistent even if there only 2/3 of the buttons in the row */
+			&.empty {
+				width: 24px;
+				background: transparent;
+			}
+
+			&.delete {
+				width: 24px;
+				background: no-repeat url("../img/x.svg");
+				&:after {
+					background: var(--red);
+				}
+			}
+
+			&.pause {
+				width: 24px;
+				background: no-repeat url("../img/pause.svg");
+				&:after {
+					background: var(--yellow);
+				}
+			}
+
+			&.resume {
+				width: 24px;
+				background: no-repeat url("../img/resume.svg");
+				&:after {
+					background: var(--yellow);
+				}
+			}
+
+			&.complete {
+				width: 30px;
+				background: no-repeat url("../img/check.svg");
+				&:after {
+					background: var(--green);
+				}
+			}
+
+			&::after {
+				display: block;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 100%;
+				width: 0;
+				height: 0;
+			}
+
+			&:focus {
+				outline: 1px solid var(--item-color);
+				&:after {
+					animation: click 0.5s;
+				}
+			}
+
+			&:hover::after {
+				animation: click 0.5s;
+			}
+		}
+	}
+}

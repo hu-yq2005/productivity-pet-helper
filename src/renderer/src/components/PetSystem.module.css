@@ -1,0 +1,274 @@
+.petContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.petCard {
+  background: var(--item-color);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 200px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.petAvatar {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.petEmoji {
+  font-size: 48px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.petEmoji:hover {
+  transform: scale(1.1);
+}
+
+.petInfo {
+  text-align: center;
+}
+
+.petName {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--font-color);
+  margin-bottom: 5px;
+}
+
+.petLevel {
+  font-size: 12px;
+  color: var(--font-color);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.petStats {
+  margin-bottom: 10px;
+}
+
+.healthBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.healthLabel {
+  font-size: 12px;
+  color: var(--font-color);
+  min-width: 30px;
+}
+
+.healthProgress {
+  flex: 1;
+  height: 8px;
+  background: var(--input-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.healthFill {
+  height: 100%;
+  transition: width 0.5s ease, background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.healthValue {
+  font-size: 10px;
+  color: var(--font-color);
+  min-width: 40px;
+  text-align: right;
+}
+
+.coinDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.coinIcon {
+  font-size: 16px;
+}
+
+.coinValue {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.petMood {
+  font-size: 11px;
+  color: var(--font-color);
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+.shopButton {
+  background: var(--accent-color);
+  color: var(--font-color);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.shopButton:hover {
+  background: var(--green);
+  transform: translateY(-1px);
+}
+
+/* Animation effects */
+.rewardAnimation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.coinEffect {
+  font-size: 24px;
+  color: #FFD700;
+  text-shadow: 0 0 10px #FFD700;
+  animation: floatUp 2s ease-out forwards;
+  text-align: center;
+}
+
+.expEffect {
+  font-size: 20px;
+  color: #FF69B4;
+  text-shadow: 0 0 10px #FF69B4;
+  animation: floatUp 2s ease-out 0.2s forwards;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.failureAnimation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.healthEffect {
+  font-size: 24px;
+  color: #FF4444;
+  text-shadow: 0 0 10px #FF4444;
+  animation: shake 1s ease-in-out;
+  text-align: center;
+}
+
+.purchaseAnimation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.purchaseEffect {
+  font-size: 20px;
+  color: #4CAF50;
+  text-shadow: 0 0 10px #4CAF50;
+  animation: floatUp 2s ease-out forwards;
+  text-align: center;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Pet mood animations */
+.petCard.happy .petEmoji {
+  animation: bounce 0.6s ease-in-out;
+}
+
+.petCard.sad .petEmoji {
+  animation: droop 0.6s ease-in-out;
+}
+
+.petCard.excited .petEmoji {
+  animation: jump 0.8s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes droop {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(5px) rotate(-5deg);
+  }
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  75% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .petContainer {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 20px auto;
+    max-width: 300px;
+  }
+  
+  .petCard {
+    min-width: auto;
+  }
+} 

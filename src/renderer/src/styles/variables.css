@@ -1,0 +1,34 @@
+:root {
+	--bg: #403f4d;
+	--green: #62dca5;
+	--yellow: #f7f879;
+	--red: #e1675a;
+
+	--input-color: #2e2d33;
+	--item-color: #4e4d5c;
+	--font-color: #fbfafb;
+	--background-color: #403f4d;
+	--border-color: #5a5966;
+	--button-hover-color: #5a5966;
+	--accent-color: #62dca5;
+
+	--big-font-size: 64px;
+	--heading-font-size: 24px;
+	--item-font-size: 20px;
+}
+
+@keyframes click {
+	0% {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 0;
+		width: 30px;
+		height: 30px;
+	}
+}
